@@ -1,7 +1,7 @@
 <?php
 
 
-namespace App\Transaction;
+namespace App\Transactions;
 
 
 use App\Models\Transaction;

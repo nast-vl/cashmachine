@@ -1,12 +1,12 @@
 <?php
 
 
-namespace App\Transaction;
+namespace App\Transactions;
 
 
 use App\Models\Transaction;
 
-class CreditCardTransaction extends AbstractTransaction
+class BankTransferTransaction extends AbstractTransaction
 {
     /**
      * @return void
@@ -15,10 +15,9 @@ class CreditCardTransaction extends AbstractTransaction
     public function validate(): void
     {
         $this->request()->validate([
-            'card_number' => 'required|digits:16|starts_with:4',
-            'card_expiration' => 'required|date_format:m/Y|after:+1 month',
-            'card_holder' => 'required|string|max:255',
-            'card_cvv' => 'required|digits:3',
+            'transfer_date' => 'required|date_format:Y-m-d|after:yesterday',
+            'customer_name' => 'required|string|max:255',
+            'account_number' => 'required|alpha_num|size:6',
             'amount' => 'required|numeric|gt:0|max:20000'
         ]);
     }
@@ -36,7 +35,7 @@ class CreditCardTransaction extends AbstractTransaction
      */
     public function inputs(): array
     {
-        return $this->request()->only(['card_number', 'card_expiration', 'card_holder', 'card_cvv', 'amount']);
+        return $this->request()->only(['transfer_date', 'customer_name', 'account_number', 'amount']);
     }
 
     /**
@@ -44,6 +43,6 @@ class CreditCardTransaction extends AbstractTransaction
      */
     public function source(): string
     {
-        return Transaction::SOURCE_CREDIT_CARD;
+        return Transaction::SOURCE_BANK_TRANSFER;
     }
 }

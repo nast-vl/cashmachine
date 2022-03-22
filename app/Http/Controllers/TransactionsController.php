@@ -6,10 +6,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Support\CashMachine;
-use App\Transaction\CashTransaction;
+use App\Transactions\CashTransaction;
 use App\Factories\TransactionFactory;
-use App\Transaction\CreditCardTransaction;
-use App\Transaction\BankTransferTransaction;
+use App\Transactions\CreditCardTransaction;
+use App\Transactions\BankTransferTransaction;
 
 class TransactionsController extends Controller
 {

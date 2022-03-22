@@ -96,7 +96,7 @@ class BankTransferTransactionTest extends TestCase
             ],
             'wrong_transfer_date' => [
                 [
-                    'transfer_date' => now()->addDay()->toDateString(),
+                    'transfer_date' => now()->subDay()->toDateString(),
                     'customer_name' => 'Customer Name',
                     'account_number' => 'ABC123',
                     'amount' => '300'

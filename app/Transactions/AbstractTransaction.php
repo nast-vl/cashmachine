@@ -1,7 +1,7 @@
 <?php
 
 
-namespace App\Transaction;
+namespace App\Transactions;
 
 
 use Illuminate\Http\Request;

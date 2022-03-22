@@ -7,10 +7,10 @@ namespace Tests\Feature;
 use Tests\TestCase;
 use App\Support\CashMachine;
 use Illuminate\Http\Request;
-use App\Transaction\CashTransaction;
+use App\Transactions\CashTransaction;
 use App\Factories\TransactionFactory;
-use App\Transaction\CreditCardTransaction;
-use App\Transaction\BankTransferTransaction;
+use App\Transactions\CreditCardTransaction;
+use App\Transactions\BankTransferTransaction;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class CashMachineTest extends TestCase
